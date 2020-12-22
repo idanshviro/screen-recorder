@@ -1,0 +1,71 @@
+{
+  "name": "Odin",
+  "version": "0.5.2",
+  "description": "An open-source screen recorder built with web technology",
+  "main": "index.js",
+  "author": "Ivan Velasquez <ivan.velasquez.rios@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chukitow/odin.git"
+  },
+  "homepage": "https://chukitow.github.io/odin",
+  "bugs": {
+    "url": "https://github.com/chukitow/odin/issues"
+  },
+  "scripts": {
+    "copy:bin": "node ./scripts/binaries.js",
+    "build": "./node_modules/webpack/bin/webpack.js --config ./webpack.config.js && yarn copy:bin",
+    "start": "npm run build && electron --enable-transparent-visuals --disable-gpu ./build/electron.js",
+    "postinstall": "electron-builder install-app-deps",
+    "package:mac": "yarn build && electron-builder -c.extraMetadata.main=build/electron.js --mac --publish=never",
+    "package:win": "yarn build && electron-builder -c.extraMetadata.main=build/electron.js --win --publish=never",
+    "release": "yarn build && electron-builder -c.extraMetadata.main=build/electron.js --mac --win --publish=always"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/dom-mediacapture-record": "^1.0.5",
+    "@types/fluent-ffmpeg": "^2.1.14",
+    "@types/lodash": "^4.14.151",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/webrtc": "^0.0.26",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.3",
+    "dotenv": "^8.2.0",
+    "electron": "^8.3.0",
+    "electron-builder": "^22.6.1",
+    "electron-updater": "^4.3.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.2",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "bulma": "^0.8.2",
+    "classnames": "^2.2.6",
+    "electron-log": "^4.1.2",
+    "electron-notarize": "^0.3.0",
+    "electron-store": "^5.1.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "jimp": "^0.12.1",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-draggable": "^4.4.2",
+    "screenshot-desktop": "^1.12.1",
+    "tempy": "^0.5.0",
+    "tui-image-editor": "^3.9.0"
+  }
+}

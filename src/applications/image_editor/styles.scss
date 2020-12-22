@@ -1,0 +1,27 @@
+.image-editor-window {
+  display: flex;
+  flex-direction: column;
+
+  .toolbar {
+    height: 50px;
+    width: 100%;
+    background-color: #C8CCCE;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    padding-right: 20px;
+  }
+
+  .editor {
+    display: flex;
+    flex-direction: row;
+
+    .preview {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+    }
+  }
+}
